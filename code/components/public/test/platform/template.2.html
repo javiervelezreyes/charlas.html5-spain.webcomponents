@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="es">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <script src="/lib/platform.js"></script>
+        
+        <link rel="stylesheet" href="/wc/wc-loader/styles/base.css">
+    </head>
+
+    <body>   
+        <template id="template" bind="{{clock}}">
+            <h1>{{hh}} : {{mm}} : {{ss}}</h1>
+        </template>
+
+        <script>
+            document.addEventListener('DOMContentLoaded', function () {
+                
+                function click (template) {
+                    var time = new Date ();
+                    template.model = {
+                        clock : {
+                            hh : time.getHours (),
+                            mm : time.getMinutes (),
+                            ss : time.getSeconds ()
+                        }
+                    }
+                };
+
+                var template = document.querySelector ('#template');
+                click (template);
+                setInterval (function () {
+                    click (template);
+                }, 1000);
+
+                Platform.performMicrotaskCheckpoint();
+            });
+        </script>
+    </body>
+</html>

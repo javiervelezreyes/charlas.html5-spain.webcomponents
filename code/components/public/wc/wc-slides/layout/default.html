@@ -1,0 +1,76 @@
+
+<polymer-element name ="wc-slides" attributes="edit channel listen">
+
+	<template>
+
+		<link rel="stylesheet" href="/wc/wc-loader/styles/bootstrap/css/bootstrap.min.css">
+		<link rel="stylesheet" href="../styles/styles.css">
+
+	    <div class="panel panel-default">
+
+			<div class="panel-body">
+				<template repeat="{{slide in data.source.slides}}" >
+					<template if="{{slide.id == state.elapsed.absolute}}">
+						<div id="{{slide.id}}">
+							<img src="{{slide.uri}}" class="slide">
+						</div>
+					</template>
+				</template>
+			</div>
+			
+			<template if="{{config.edit}}">
+				<div class="panel-footer">
+					<div class="row">
+						<div class="col-md-12">
+				            <div class="btn-group pull-right margin-right margin-left">
+				            	<button type="button" class="btn btn-default" on-click="{{doGoStart}}">
+				                	<span class="glyphicon glyphicon-step-backward"></span>
+				                </button>
+				                <button type="button" class="btn btn-default" on-click="{{doPrevious}}">
+				                	<span class="glyphicon glyphicon-backward"></span>
+				                </button>
+				                </button>
+				                <button type="button" class="btn btn-default" on-click="{{doNext}}">
+				                	<span class="glyphicon glyphicon-forward"></span>
+				                </button>
+				                <button type="button" class="btn btn-default" on-click="{{doGoEnd}}">
+				                	<span class="glyphicon glyphicon-step-forward"></span>
+				                </button>
+				            </div>
+
+					    	<div>
+					    		<div class="progress margin-top">
+									<div class="progress-bar" 
+										role="progressbar" 
+										aria-valuenow="60" 
+										aria-valuemin="0" 
+										aria-valuemax="100" 
+										style="width: {{state.elapsed.relative}}%;">
+								    	<span>{{state.elapsed.formatted}}</span>
+									</div>
+								</div>
+					    	</div>
+				    	</div>
+					</div>
+				</div>
+		    </template>
+
+		</div>
+
+        <template if="{{data.title}}"><h4>{{data.title}}</h4></template>
+        <template if="{{data.author.name}}">
+	        <address>
+	            {{data.author.name}}
+	            <template if="{{data.author.twitter}}"><br><i>{{data.author.twitter}}</i></template>
+	            <template if="{{data.author.email}}"><br><i>{{data.author.email}}</i></template>
+	        </address>
+	        <hr>
+	    </template>
+        <p class="text-justify"><content select="wc-slides-description"></content></p>
+
+	</template>
+
+	<script src="/wc/wc-loader/scripts/jquery/jquery.js"></script>
+	<script src="../scripts/script.js"></script>
+
+</polymer-element>

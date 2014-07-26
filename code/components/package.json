@@ -1,0 +1,11 @@
+{
+	"name" : "static-server",
+	"description" : "Static server",
+	"version" : "0.0.1",
+	"private" : true,
+	"dependencies" : {
+		"fn.js"     : "0.7.0",
+	 	"socket.io" : "0.9.16",
+	 	"express"   : "3.4.4"
+	} 
+}

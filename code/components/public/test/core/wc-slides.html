@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="es">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <script src="/lib/platform.js"></script>
+        <script src="/lib/polymer.js"></script>
+
+        <link rel="stylesheet" href="/wc/wc-loader/styles/bootstrap/css/bootstrap.min.css">
+        <link rel="stylesheet" href="/wc/wc-loader/styles/base.css">
+        
+        <link rel="import" href="/wc/wc-slides/layout/default.html">
+    </head>
+
+    <body>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+
+                    <wc-slides edit>
+                        <wc-slides-title>Javascript Complexity</wc-slides-title>
+                        <wc-slides-author twitter="@jsoverson">Jarrod Overson</wc-slides-author>
+                        <wc-slides-description>
+                            <b>Comportamiento esperado.</b> Mas allá de un mero secuenciador de transparencias, este componente
+                            incluye una linea de tiempo con información sobre eventos y acciones que se lanzan discrecionalmente
+                            a medida que avanza la reproducción. Los eventos se disparan para que una arquitectura de escuchadores
+                            reaccione. Aunque en este ejemplo dicha arquitectura no está proporcionada puede consultar los ejemplos de 
+                            wc-speech para información al respecto. Las acciones por su parte operan sobre la reproducción invocando
+                            alguno de los métodos de negocio del componente con sus respectivos parámetros. Notará que el comportamiento de la reproducción no es, en este sentido, continuo. Siéntase libre de alterar el fichero
+                            JSON de timeline para probar sus efectos. 
+                        </wc-slides-description>
+                        <wc-slides-source uri="/test/resources/slides" prefix="Diapositiva" length="79" ext="jpg"></wc-slides-source>
+                        <wc-slides-timeline uri="/test/data/slides-timeline1.json"></wc-slides-timeline>
+                    </wc-slides>
+
+                </div>
+            </div>
+        </div>
+    </body>
+</html> 

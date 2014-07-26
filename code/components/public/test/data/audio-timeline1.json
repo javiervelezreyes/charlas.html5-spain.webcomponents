@@ -1,0 +1,22 @@
+[{
+    "time"   : "10",
+    "events" : [
+        {
+            "type" : "zoom",
+            "data" : { "time": "13" }
+        },
+        {
+            "type" : "next",
+            "data" : 1
+        }
+    ],
+    "actions" : [
+        {
+            "name"       : "volume",
+            "parameters" : [2]
+        },
+        {
+            "name"       : "go",
+            "parameters" : ["2:13"]
+        }]
+}]

@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="es">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <script src="/lib/platform.js"></script>
+        <script src="/lib/polymer.js"></script>
+        
+        <link rel="stylesheet" href="/wc/wc-loader/styles/bootstrap/css/bootstrap.min.css">
+        <link rel="stylesheet" href="/wc/wc-loader/styles/base.css">
+        
+        <link rel="import" href="/wc/wc-webcam/layout/default.html">
+    </head>
+
+    <body>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+
+                    <wc-webcam edit>
+                        <wc-webcam-title>Your Speech</wc-webcam-title>
+                        <wc-webcam-author twitter="@yourself">This is you</wc-webcam-author>
+                        <wc-webcam-description>
+                            <b>Comportamiento esperado.</b> Este componente hace uso de las capacidades de WebRTC para activar
+                            la camara web y mostrar el video por pantalla. Se trata de una sencilla prueba de concepto que ni 
+                            captura ni hace streaming de video. Asegurese de que permise a su navegador hacer uso de la cámara
+                            web cuando carga este ejemplo.
+                        </wc-webcam-description>
+                    </wc-webcam>
+
+                </div>
+            </div>
+        </div>        
+    </body>
+</html> 

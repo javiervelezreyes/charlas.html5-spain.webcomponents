@@ -1,0 +1,29 @@
+<!doctype html>
+<polymer-element name="wc-clock">
+    <template>
+            <h1>{{hh}} : {{mm}} : {{ss}}</h1>
+    </template>
+
+    <script>
+        Polymer ('wc-clock', {
+
+            hh : 0, 
+            mm : 0,
+            ss : 0,
+
+            ready: function () {
+                this.click ();
+                setInterval (function () {
+                    this.click ();
+                }.bind (this), 1000);
+            },
+
+            click: function () {
+                var time = new Date ();
+                this.hh = time.getHours ();
+                this.mm = time.getMinutes ();
+                this.ss = time.getSeconds ();
+            }
+        });
+    </script>
+</polymer-element>

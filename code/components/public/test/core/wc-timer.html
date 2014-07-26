@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="es">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <script src="/lib/platform.js"></script>
+        <script src="/lib/polymer.js"></script>
+        
+        <link rel="stylesheet" href="/wc/wc-loader/styles/bootstrap/css/bootstrap.min.css">
+        <link rel="stylesheet" href="/wc/wc-loader/styles/base.css">
+        
+        <link rel="import" href="/wc/wc-timer/layout/default.html">
+    </head>
+
+    <body>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-5">
+
+                    <wc-timer time="1:30" edit>
+                        <wc-timer-title>You are Talking</wc-timer-title>
+                        <wc-timer-alarm alarm time="30"></wc-timer-alarm>
+                        <wc-timer-alarm alarm time="15"></wc-timer-alarm>
+                    </wc-timer>
+
+                </div>
+            </div>
+        </div>
+    </body>
+</html>

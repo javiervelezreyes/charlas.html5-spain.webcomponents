@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="es">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <script src="/lib/platform.js"></script>
+        <script src="/lib/polymer.js"></script>
+        
+        <link rel="stylesheet" href="/wc/wc-loader/styles/bootstrap/css/bootstrap.min.css">
+        <link rel="stylesheet" href="/wc/wc-loader/styles/base.css">
+        
+        <link rel="import" href="/wc/wc-video/layout/default.html">
+        <link rel="import" href="/wc/wc-controller/layout/default.html">
+    </head>
+
+    <body>
+
+        <style>
+            body {
+                background-color: #2e2e2e;
+                color: #ffffff;
+            }
+        </style>
+
+        <div class="container">
+
+            <div class="row">
+                <div class="col-md-12">
+                    <wc-controller shift="5">
+                        <wc-controller-agent ref="A"></wc-controller-agent>
+                        <wc-controller-agent ref="B"></wc-controller-agent>
+                        <wc-controller-agent ref="C"></wc-controller-agent>
+                    </wc-controller>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+
+                    <div class="row">
+                        <div class="col-md-9">
+                            <h1>Javascript Complexity</h1>
+                            <address>
+                                <h3>Jarrod Overson - @jsoverson</h3>
+                            </address>
+                        </div>
+                        <div class="col-md-3">
+                            <img src="/test/resources/image/image1.png">
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-6">
+                    <wc-video -edit id="A">
+                        <wc-video-source
+                            uri="/test/resources/video/video1.mp4" 
+                            type="video/mp4">
+                        </wc-video-source>
+                    </wc-video>
+                </div>
+                 <div class="col-md-6">
+                    <wc-video -edit id="B">
+                        <wc-video-source
+                            uri="/test/resources/video/video2.mp4" 
+                            type="video/mp4">
+                        </wc-video-source>
+                    </wc-video>
+                </div>
+            </div>
+            <br><br>
+            <div class="row">
+                <div class="col-md-6 col-md-offset-3">
+                    <wc-video -edit id="C">
+                        <wc-video-source
+                            uri="/test/resources/video/video3.mp4" 
+                            type="video/mp4">
+                        </wc-video-source>
+                    </wc-video>
+                </div>
+            </div>      
+        </div>
+
+    </body>
+</html> 

@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="es">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <script src="/lib/platform.js"></script>
+        <script src="/lib/polymer.js"></script>
+        
+        <link rel="stylesheet" href="/wc/wc-loader/styles/bootstrap/css/bootstrap.min.css">
+        <link rel="stylesheet" href="/wc/wc-loader/styles/base.css">
+        
+        <link rel="import" href="/wc/wc-audio/layout/default.html">
+        <link rel="import" href="/wc/wc-bus/layout/default.html">
+    </head>
+
+    <body>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <wc-bus id="com.agora.example.audio" trace></wc-bus>
+                    <wc-audio edit id="A", -channel="23" -listen>
+                        <wc-audio-title>Javascript Complexity</wc-audio-title>
+                        <wc-audio-author twitter="@jsoverson">Jarrod Overson</wc-audio-author>
+                        <wc-audio-description>
+                            <b>Comportamiento esperado.</b> Mas allá de un mero reproductor de audio, este componente
+                            incluye una linea de tiempo con información sobre eventos y acciones que se lanzan discrecionalmente
+                            a medida que avanza la reproducción. Los eventos se disparan para que una arquitectura de escuchadores
+                            reaccione. Aunque en este ejemplo dicha arquitectura no está proporcionada puede consultar los ejemplos de 
+                            wc-speech para información al respecto. Las acciones por su parte operan sobre la reproducción invocando
+                            alguno de los métodos de negocio del componente con sus respectivos parámetros. Notará que el comportamiento de la reproducción no es, en este sentido, continuo. Siéntase libre de alterar el fichero
+                            JSON de timeline para probar sus efectos. 
+                        </wc-audio-description>
+                        <wc-audio-front uri="/test/resources/image/image2.jpg"></wc-audio-front>
+                        <wc-audio-source uri="/test/resources/audio/audio1.mp3" type="audio/mpeg"></wc-audio-source>
+                        <wc-audio-timeline uri="/test/data/audio-timeline1.json"></wc-audio-timeline>
+                    </wc-audio>
+                </div>
+            </div>
+        </div>
+    </body>
+</html> 

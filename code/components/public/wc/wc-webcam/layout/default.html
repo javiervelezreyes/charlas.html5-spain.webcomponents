@@ -1,0 +1,66 @@
+
+<polymer-element name ="wc-webcam" attributes="edit">
+
+	<template>
+
+		<link rel="stylesheet" href="/wc/wc-loader/styles/bootstrap/css/bootstrap.min.css">
+		<link rel="stylesheet" href="../styles/styles.css">
+
+	    <div class="panel panel-default">
+
+			<div class="panel-body {{state.visible ? 'container-on' : 'container-off'}}">				
+				<div class="{{state.visible ? 'webcam-on' : 'webcam-off'}}">
+					<video id="webcam" class="video" width="100%" autoplay></video>
+				</div>
+			</div>
+	
+			<template if="{{config.edit}}">
+				<div class="panel-footer">
+					<div class="row">
+						<div class="col-md-12">
+							<div class="btn-group pull-right">
+				                <button type="button" class="btn btn-default" on-click="{{doVolumeDown}}">
+				                	<span class="glyphicon glyphicon-chevron-down"></span>
+				                </button>
+				               	<button type="button" class="btn btn-default" on-click="{{doMute}}">
+				                	<template if="{{state.muted}}"><span class="glyphicon glyphicon-volume-off"></span></template>
+				                    <template if="{{!state.muted}}"><span class="glyphicon glyphicon-volume-up"></span></template>
+				                </button>
+				                <button type="button" class="btn btn-default" on-click="{{doVolumeUp}}">
+				                	<span class="glyphicon glyphicon-chevron-up"></span>
+				                </button>
+				            </div> 
+				            <div class="btn-group pull-right margin-right margin-left">
+				                <button type="button" class="btn btn-default" on-click="{{doStart}}">
+				                	<span class="glyphicon glyphicon-play"></span>
+				                </button>
+				                <button type="button" class="btn btn-default" on-click="{{doStop}}">
+				                	<span class="glyphicon glyphicon-stop"></span>
+				                </button>
+				                <button type="button" class="btn btn-default {{state.visible ? 'active' : ' '}}" on-click="{{doOnOff}}">
+				                	<span class="glyphicon glyphicon-facetime-video"></span>
+				                </button>
+				            </div>
+				    	</div>
+					</div>
+				</div>
+		    </template>
+
+		</div>
+
+        <h4>{{data.title}}</h4>
+        <template if="{{data.author.name}}">
+	        <address>
+	            {{data.author.name}}
+	            <template if="{{data.author.twitter}}"><br><i>{{data.author.twitter}}</i></template>
+	            <template if="{{data.author.email}}"><br><i>{{data.author.email}}</i></template>
+	        </address>
+	        <hr>
+	    </template>
+        <p class="text-justify"><content select="wc-webcam-description"></content></p>
+
+	</template>
+
+	<script src="../scripts/script.js"></script>
+
+</polymer-element>

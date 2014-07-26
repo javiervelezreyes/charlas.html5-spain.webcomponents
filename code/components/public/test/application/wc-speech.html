@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="es">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <script src="/lib/platform.js"></script>
+        <script src="/lib/polymer.js"></script>
+        
+        <link rel="stylesheet" href="/wc/wc-loader/styles/bootstrap/css/bootstrap.min.css">
+        <link rel="stylesheet" href="/wc/wc-loader/styles/base.css">
+        
+        <link rel="import" href="/wc/wc-speech/1/layout/default.html">
+        <link rel="import" href="/wc/wc-bus/layout/default.html">
+    </head>
+
+    <body>
+
+        <style>
+            body {
+                background-color: #2e2e2e;
+                color: #ffffff;
+            }
+        </style>
+
+        
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+
+                    <wc-bus id="com.agora.example.speech" -trace -remote></wc-bus>
+                    <wc-speech id="A" channel="1" listen>
+                        <wc-speech-title>Javascript Complexity</wc-speech-title>
+                        <wc-speech-author twitter="@jsoverson">Jarrod Overson</wc-speech-author>
+                        <wc-speech-logo uri="/test/resources/image/image1.png"></wc-speech-logo>
+                        <wc-speech-front uri="/test/resources/image/image2.jpg"></wc-speech-front>
+                        <wc-speech-talk uri="/test/resources/video/video1.mp4" type="video/mp4"></wc-speech-talk>
+                        <wc-speech-timeline uri="/test/data/video-timeline2.json"></wc-speech-timeline>
+                        <wc-speech-notes 
+                            uri="/test/resources/slides" 
+                            prefix="Diapositiva" 
+                            length="79" 
+                            ext="jpg"></wc-speech-notes>
+                    </wc-speech>
+
+                </div>
+            </div>       
+        </div>
+
+    </body>
+</html> 

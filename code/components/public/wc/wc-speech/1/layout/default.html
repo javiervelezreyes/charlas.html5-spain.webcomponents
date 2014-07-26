@@ -1,0 +1,63 @@
+
+<polymer-element name ="wc-speech" attributes="edit channel listen">
+
+	<link rel="import" href="/wc/wc-video/layout/default.html">
+	<link rel="import" href="/wc/wc-audio/layout/default.html">
+    <link rel="import" href="/wc/wc-slides/layout/default.html">
+    <link rel="import" href="/wc/wc-bus/layout/default.html">
+
+	<template>
+
+		<link rel="stylesheet" type="text/css" href="../styles/styles.css">
+		<link rel="stylesheet" href="/wc/wc-loader/styles/bootstrap/css/bootstrap.min.css">
+
+		<wc-bus id="com.agora.speech" -trace -remote></wc-bus>
+        <div class="container-fluid">
+
+        	<div class="row">
+                <div class="col-md-9">
+	                <h1>{{data.title}}</h1>
+			        <template if="{{data.author.name}}">
+				        <address>
+				            <h3>{{data.author.name}} - {{data.author.twitter}}</h3>
+				        </address>
+				    </template>
+                </div>
+                <div class="col-md-3">
+                	<img src="{{data.logo}}">
+                </div>
+            </div>
+
+            <div class="row content">
+                <div class="col-md-{{state.zoom ? '12' : '5'}}">
+                	<template if="{{data.talk.type == 'video/mp4'}}">
+	                    <wc-video id="talk" channel="ch1" edit listen> 
+	                        <wc-video-source uri="{{data.talk.uri}}" type="{{data.talk.type}}"></wc-video-source>
+	                        <wc-video-timeline uri="{{data.timeline}}"></wc-video-timeline>
+	                    </wc-video>
+	                </template>
+	                <template if="{{data.talk.type == 'audio/mp3'}}">
+	                    <wc-audio id="talk" channel="ch1" edit listen>
+	                    	<wc-audio-front uri="{{data.front}}"></wc-audio-front>
+	                        <wc-audio-source uri="{{data.talk.uri}}" type="{{data.talk.type}}"></wc-audio-source>
+	                        <wc-audio-timeline uri="{{data.timeline}}"></wc-audio-timeline>
+	                    </wc-audio>
+	                </template>
+                </div>
+                
+                <div class="col-md-7 {{state.zoom ? 'hidden' : ''}}">
+                    <wc-slides id="notes" channel="ch1" -edit listen>
+                        <wc-slides-source uri="{{data.notes.uri}}" 
+                            prefix="{{data.notes.prefix}}" 
+                            length="{{data.notes.length}}" 
+                            ext="{{data.notes.ext}}"></wc-slides-source>
+                    </wc-slides>
+                </div>
+            </div>
+        </div>
+
+	</template>
+
+	<script src="../scripts/script.js"></script>
+
+</polymer-element>

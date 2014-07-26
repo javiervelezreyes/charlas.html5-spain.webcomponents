@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="es">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <script src="/lib/platform.js"></script>
+        
+        <link rel="stylesheet" href="/wc/wc-loader/styles/base.css">
+    </head>
+
+    <body>
+        
+        <template id="template">
+            <style>
+                .title { color: blue; }
+                .body {color: gray; }
+            </style>
+            <h1 class="title"><content select=".title"></content></h1>
+            <div class="body"><content select=".body"></content></div>
+        </template>
+
+        <div id="new-1">
+            <div class="title">Lorem ipsum dolor sit amet</div>
+            <div class="body">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+            tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+            quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+            consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+            cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+            proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</div>
+        </div>
+
+        <div id="new-2">
+            <div class="title">Exercitation ullamco laboris</div>
+            <div class="body">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+            tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+            quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+            consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+            cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+            proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</div>
+        </div>
+
+        <br><br>
+        <div class="title">Esto no es azul</div>
+
+        <script>
+            function createNew (host) {
+                var template = document.querySelector ('#template');
+                var host = document.querySelector (host);
+                var root = host.createShadowRoot ();     
+                root.appendChild (template.content.cloneNode (true));
+                return host;
+            }
+
+            createNew ('#new-1');
+            createNew ('#new-2');
+
+        </script>
+
+    </body>
+</html>

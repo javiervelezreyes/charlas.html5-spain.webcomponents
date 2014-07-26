@@ -1,0 +1,38 @@
+[{
+    "slide"  : 5,
+    "events" : [
+        {
+            "type" : "zoom",
+            "data" : { "time": "13" }
+        },
+        {
+            "type" : "next",
+            "data" : 1
+        }
+    ],
+    "actions" : [
+        {
+            "name"       : "go",
+            "parameters" : [15]
+        }
+    ]
+}, 
+{
+    "slide"  : 25,
+    "events" : [
+        {
+            "type" : "zoom",
+            "data" : { "time": "13" }
+        },
+        {
+            "type" : "next",
+            "data" : 1
+        }
+    ],
+    "actions" : [
+        {
+            "name"       : "go",
+            "parameters" : [6]
+        }
+    ]
+}]

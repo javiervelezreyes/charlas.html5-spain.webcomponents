@@ -1,0 +1,92 @@
+
+<polymer-element name ="wc-audio" attributes="edit">
+
+	<template>
+
+		<link rel="stylesheet" href="/wc/wc-loader/styles/bootstrap/css/bootstrap.min.css">
+		<link rel="stylesheet" href="../styles/styles.css">
+
+	    <div class="panel panel-default">
+
+			<div class="panel-body">
+				<img id="front" width="100%" src="{{data.front}}"/>
+		    	<audio id="audio" width="100%">
+					<template repeat="{{source in data.sources}}" >
+						<source src="{{source.uri}}" type="{{source.type}}" >
+					</template>
+				</audio>
+			</div>
+			
+			<template if="{{config.edit}}">
+				<div class="panel-footer">
+					<div class="row">
+						<div class="col-md-12">
+				    		<div class="btn-group pull-right">
+				                <button type="button" class="btn btn-default" on-click="{{doVolumeDown}}">
+				                	<span class="glyphicon glyphicon-minus-sign"></span>
+				                </button>
+				               	<button type="button" class="btn btn-default" on-click="{{doMute}}">
+				                	<template if="{{state.muted}}"><span class="glyphicon glyphicon-volume-off"></span></template>
+				                    <template if="{{!state.muted}}"><span class="glyphicon glyphicon-volume-up"></span></template>
+				                </button>
+				                <button type="button" class="btn btn-default" on-click="{{doVolumeUp}}">
+				                	<span class="glyphicon glyphicon glyphicon-plus-sign"></span>
+				                </button>
+				            </div> 
+				            <div class="btn-group pull-right margin-right margin-left">
+				            	<button type="button" class="btn btn-default" on-click="{{doGoStart}}">
+				                	<span class="glyphicon glyphicon-step-backward"></span>
+				                </button>
+				                <button type="button" class="btn btn-default" on-click="{{doBackward}}">
+				                	<span class="glyphicon glyphicon-backward"></span>
+				                </button>
+				                <button type="button" class="btn btn-default" on-click="{{doPlay}}">
+				                	<span class="glyphicon glyphicon-play"></span>
+				                </button>
+				                <button type="button" class="btn btn-default" on-click="{{doStop}}">
+				                	<span class="glyphicon glyphicon-stop"></span>
+				                </button>
+				                <button type="button" class="btn btn-default" on-click="{{doForward}}">
+				                	<span class="glyphicon glyphicon-forward"></span>
+				                </button>
+				                <button type="button" class="btn btn-default" on-click="{{doGoEnd}}">
+				                	<span class="glyphicon glyphicon-step-forward"></span>
+				                </button>
+				            </div>
+
+					    	<div>
+					    		<div class="progress margin-top">
+									<div class="progress-bar" 
+										role="progressbar" 
+										aria-valuenow="60" 
+										aria-valuemin="0" 
+										aria-valuemax="100" 
+										style="width: {{state.elapsed.relative}}%;">
+								    	<span>{{state.elapsed.formatted}}</span>
+									</div>
+								</div>
+					    	</div>
+				    	</div>
+					</div>
+				</div>
+		    </template>
+
+		</div>
+
+        <template if="{{data.title}}"><h4>{{data.title}}</h4></template>
+        <template if="{{data.author.name}}">
+	        <address>
+	            {{data.author.name}}
+	            <template if="{{data.author.twitter}}"><br><i>{{data.author.twitter}}</i></template>
+	            <template if="{{data.author.email}}"><br><i>{{data.author.email}}</i></template>
+	        </address>
+	        <hr>
+	    </template>
+        <p class="text-justify"><content select="wc-audio-description"></content></p>
+
+	</template>
+
+	<script src="/wc/wc-loader/scripts/jquery/jquery.js"></script>
+	<script src="../scripts/script.js"></script>
+
+</polymer-element>

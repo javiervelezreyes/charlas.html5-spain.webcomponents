@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="es">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <script src="/lib/platform.js"></script>
+
+        <link rel="stylesheet" href="/wc/wc-loader/styles/base.css">
+    </head>
+
+    <body>
+        
+        <div id="clock-1"></div>
+        <div id="clock-2"></div>
+        <div id="clock-3"></div>
+
+        <script>
+            function createClock (host) {
+                var host = document.querySelector (host);
+                var root = host.createShadowRoot ();
+                var time = new Date ();
+                var hh = time.getHours ();
+                var mm = time.getMinutes ();
+                var ss = time.getSeconds ();
+                root.innerHTML = '<h1 class="clock">' + hh + ' : ' + mm + ' : ' + ss + '</h1>';
+                return host;
+            }
+
+            var clock1 = createClock ('#clock-1');
+            var clock2 = createClock ('#clock-2');
+            var clock3 = createClock ('#clock-3');
+
+            console.log ('.clock :', document.querySelector ('.clock'));
+            console.log ('#clock-1.clock :', clock1.shadowRoot.querySelector ('.clock'));
+            console.log ('#clock-2.clock :', clock2.shadowRoot.querySelector ('.clock'));
+            console.log ('#clock-3.clock :', clock3.shadowRoot.querySelector ('.clock'));
+
+        </script>
+
+    </body>
+</html>

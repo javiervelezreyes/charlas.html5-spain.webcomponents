@@ -1,0 +1,126 @@
+<polymer-element name="wc-timer" attributes="time edit">
+
+	<template>
+
+		<link rel="stylesheet" type="text/css" href="../styles/style.css">      
+        <link rel="stylesheet" type="text/css" href="/wc/wc-loader/styles/bootstrap/css/bootstrap.min.css">
+      
+   		<template if="{{state.view == 'view-1'}}">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h5><strong>{{data.title}}</strong></h5>
+                    <div class="btn-group pull-right">
+                        <button type="button" class="btn btn-default" on-click="{{doStart}}">Start</button>
+                        <button type="button" class="btn btn-default" on-click="{{doStop}}">Stop</button>
+                        <button type="button" class="btn btn-default" on-click="{{doReset}}">Reset</button>
+                    </div>
+                </div>
+                <div class="panel-body">
+                    <div class="row">
+                        <div class="col-md-2">
+                            <span class="left">{{state.time.hours}}</span>hours
+                        </div>
+                        <div class="col-md-7 text-center">
+                            <span class="center">{{state.time.minutes}}</span>mins
+                        </div>
+                        <div class="col-md-3">
+                            <span class="right">{{state.time.seconds}}</span>segs
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </template>
+
+        <template if="{{state.view == 'view-2'}}">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h5><strong>{{data.title}}</strong></h5>
+                    <div class="btn-group pull-right">
+                        <button type="button" class="btn btn-default" on-click="{{doStart}}">Start</button>
+                        <button type="button" class="btn btn-default" on-click="{{doStop}}">Stop</button>
+                        <button type="button" class="btn btn-default" on-click="{{doReset}}">Reset</button>
+                    </div>
+                </div>
+                <div class="panel-body">
+                    <div class="row">
+                        <template bind>
+                            <div class="col-md-2">
+                                <span class="left">{{state.time.minutes}}</span>mins
+                            </div>
+                            <div class="col-md-7 text-center">
+                                <span class="center {{state.effect}}">{{state.time.seconds}}</span>segs
+                            </div>
+                            <div class="col-md-3"> 
+                                <span class="right">&nbsp;</span>
+                            </div>
+                        </template>
+                    </div>
+                </div>
+            </div>
+        </template>
+
+        <template if="{{config.edit}}">
+            <div class="row">
+                <div class="col-md-12 -text-center">
+                	<span>
+	                	<div class="btn-group">
+		                    <button type="button" class="btn btn-default btn-sm" on-click="{{doHourUp}}">
+		                    	<span class="glyphicon glyphicon-chevron-up"></span>
+		                    </button>
+		                    <button type="button" class="btn btn-default btn-sm" disabled>
+		                    	Hours
+		                    </button>
+		                    <button type="button" class="btn btn-default btn-sm" on-click="{{doHourDown}}">
+		                    	<span class="glyphicon glyphicon-chevron-down"></span>
+		                    </button>
+		                </div>
+                	</span> 
+                	<span>	
+	                	<div class="btn-group">
+		                    <button type="button" class="btn btn-default btn-sm" on-click="{{doMinUp}}">
+		                    	<span class="glyphicon glyphicon-chevron-up"></span>
+		                    </button>
+		                    <button type="button" class="btn btn-default btn-sm" disabled>
+		                    	Mins
+		                    </button>
+		                    <button type="button" class="btn btn-default btn-sm" on-click="{{doMinDown}}">
+		                    	<span class="glyphicon glyphicon-chevron-down"></span>
+		                    </button>
+		                </div>
+                	</span> 
+                	<span>
+	                	<div class="btn-group">
+		                    <button type="button" class="btn btn-default btn-sm" on-click="{{doSecUp}}">
+		                    	<span class="glyphicon glyphicon-chevron-up"></span>
+		                    </button>
+		                    <button type="button" class="btn btn-default btn-sm" disabled>
+		                    	Secs
+		                    </button>
+		                    <button type="button" class="btn btn-default btn-sm" on-click="{{doSecDown}}">
+		                    	<span class="glyphicon glyphicon-chevron-down"></span>
+		                    </button>
+		                </div>
+                	</span>
+                	<span class="pull-right">
+	                	<button type="button" class="btn btn-default btn-sm" on-click="{{doMute}}">
+	                    	<template if="{{state.muted}}"><span class="glyphicon glyphicon-volume-off"></span></template>
+                            <template if="{{!state.muted}}"><span class="glyphicon glyphicon-volume-up"></span></template>
+	                    </button>
+                	</span>
+                </div>
+            </div>
+        </template>
+
+        <audio id="alarm">
+			<source src="../resources/audio/alarm.mp3" type="audio/mpeg">
+			<source src="../resources/audio/alarm.wav" type="audio/wav">
+		</audio>     
+
+  	</template>
+
+  	<script src="../scripts/script.js"></script>
+
+</polymer-element>
+
+
+
