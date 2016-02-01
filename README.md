@@ -37,6 +37,7 @@ De acuerdo a esta idea, en esta charla comenzaremos haciendo una revisión de la
 Doctor en informática por la UNED desde el año 2009, Javier es investigador y con amplia experiencia en el diseño y análisis de colaboración y además realiza frecuentes actividades de training y consultoría para empresas, siendo ávido seguidor de innovaciones en TIC. En los últimos tiempos Javier se ha especializado en la tecnología de componentes Web. En particular, sobre el Framework de desarrollo Polymer, y, está impulsando su uso con iniciativas divulgativas y de desarrollo. No en vano es actualmente Polymer Polytechnic Speaker y coorganiza el grupo de innovación sobre componentes Web de ámbito nacional Polymer Spain.
 
 ### Tags
+
 - Polymer Polytechnic Speaker
 - Co-organizador de Polymer Spain 
 - Evangelización Web
